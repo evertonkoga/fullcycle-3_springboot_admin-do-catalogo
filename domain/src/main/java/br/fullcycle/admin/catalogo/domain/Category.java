@@ -1,5 +1,0 @@
-package br.fullcycle.admin.catalogo.domain;
-
-public class Category {
-    public String id;
-}
