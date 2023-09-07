@@ -1,2 +1,5 @@
 rootProject.name = 'fullcycle-3_springboot_admin-do-catalogo'
+include 'domain'
+include 'application'
+include 'infrastructure'
 
