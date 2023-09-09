@@ -5,6 +5,7 @@ import br.fullcycle.admin.catalogo.domain.category.CategoryGateway;
 import br.fullcycle.admin.catalogo.domain.category.CategoryID;
 import br.fullcycle.admin.catalogo.domain.exceptions.DomainException;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,6 +29,10 @@ public class UpdateCategoryUseCaseTest {
     private DefaultUpdateCategoryUseCase useCase;
     @Mock
     private CategoryGateway categoryGateway;
+    @BeforeEach
+    void cleanUp() {
+        Mockito.reset(categoryGateway);
+    }
 
     @Test
     public void givenAValidCommand_whenCallsUpdateCategory_shouldReturnCategoryId() {
