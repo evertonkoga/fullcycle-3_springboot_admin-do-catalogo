@@ -21,4 +21,10 @@ public class DomainException extends NoStacktraceException {
     public List<Error> getErrors() {
         return errors;
     }
+    public boolean hasError() {
+        return getErrors() != null && !getErrors().isEmpty();
+    }
+    public Error firstError() {
+        return hasError() ? getErrors().get(0) : null;
+    }
 }

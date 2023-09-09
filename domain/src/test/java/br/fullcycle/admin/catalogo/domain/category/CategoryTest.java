@@ -66,7 +66,7 @@ public class CategoryTest {
                 DomainException.class, () -> categoryCreated.validate(new ThrowsValidationHandler())
         );
         Assertions.assertEquals(expectedErrorCount, actualException.getErrors().size());
-        Assertions.assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
+        Assertions.assertEquals(expectedErrorMessage, actualException.firstError().message());
     }
     @ParameterizedTest
     @ValueSource(ints = {2, 256})
@@ -85,7 +85,7 @@ public class CategoryTest {
                 DomainException.class, () -> categoryCreated.validate(new ThrowsValidationHandler())
         );
         Assertions.assertEquals(expectedErrorCount, actualException.getErrors().size());
-        Assertions.assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
+        Assertions.assertEquals(expectedErrorMessage, actualException.firstError().message());
     }
     @Test
     public void givenValidEmptyDescription_whenCallNewCategoryAndValidate_thenInstantiateCategory() {
