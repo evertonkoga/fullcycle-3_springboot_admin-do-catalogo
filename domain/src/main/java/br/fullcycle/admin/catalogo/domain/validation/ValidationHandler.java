@@ -10,6 +10,9 @@ public interface ValidationHandler {
     default boolean hasError() {
         return getErros() != null && !getErros().isEmpty();
     }
+    default Error firstError() {
+        return (getErros() == null || getErros().isEmpty()) ? null : getErros().get(0);
+    }
     interface Validation{
         void validate();
     }
