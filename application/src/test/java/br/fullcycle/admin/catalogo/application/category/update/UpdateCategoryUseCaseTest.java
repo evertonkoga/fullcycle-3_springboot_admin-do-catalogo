@@ -167,13 +167,13 @@ public class UpdateCategoryUseCaseTest {
         final var expectedName = "Filmes";
         final var expectedDescription = "A categoria mais assistida";
         final var expectedIsActive = false;
-        final var expectedId = "idqualquer";
+        final var expectedId = CategoryID.from("id_qualquer");
         final var expectedErrorMessage = "Category with ID %s was not found".formatted(expectedId);
         final var expectedErrorCount = 1;
 
-        final var aCommand = UpdateCategoryCommand.with(expectedId, expectedName, expectedDescription, expectedIsActive);
+        final var aCommand = UpdateCategoryCommand.with(expectedId.getValue(), expectedName, expectedDescription, expectedIsActive);
 
-        when(categoryGateway.findBy(eq(CategoryID.from(expectedId))))
+        when(categoryGateway.findBy(eq(expectedId)))
                 .thenReturn(Optional.empty());
 
         final var output = Assertions.assertThrows(DomainException.class, () -> useCase.execute(aCommand));
@@ -181,7 +181,7 @@ public class UpdateCategoryUseCaseTest {
         Assertions.assertEquals(expectedErrorCount, output.getErrors().size());
         Assertions.assertEquals(expectedErrorMessage, output.firstError().message());
 
-        Mockito.verify(categoryGateway, times(1)).findBy(eq(CategoryID.from(expectedId)));
+        Mockito.verify(categoryGateway, times(1)).findBy(eq(expectedId));
         Mockito.verify(categoryGateway, times(0)).update(any());
     }
 }
