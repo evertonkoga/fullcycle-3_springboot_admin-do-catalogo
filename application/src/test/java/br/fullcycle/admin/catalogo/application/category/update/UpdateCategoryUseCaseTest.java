@@ -168,7 +168,7 @@ public class UpdateCategoryUseCaseTest {
         final var expectedDescription = "A categoria mais assistida";
         final var expectedIsActive = false;
         final var expectedId = CategoryID.from("id_qualquer");
-        final var expectedErrorMessage = "Category with ID %s was not found".formatted(expectedId);
+        final var expectedErrorMessage = "Category with ID %s was not found".formatted(expectedId.getValue());
         final var expectedErrorCount = 1;
 
         final var aCommand = UpdateCategoryCommand.with(expectedId.getValue(), expectedName, expectedDescription, expectedIsActive);
