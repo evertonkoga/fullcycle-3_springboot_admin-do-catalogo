@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cd00eda-16cc-4ab1-ad04-d29f1a63b71c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/application-test.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/resources/application-development.yml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/application-development.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/src/test/java/br/fullcycle/admin/catalogo/infrastructure/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/test/java/br/fullcycle/admin/catalogo/infrastructure/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +70,7 @@
       <recent name="C:\Users\everton.koga\Documents\Everton\estudos\fullcycle\fullcycle-3_springboot_admin-do-catalogo\infrastructure\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.MainTest.testMain">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.fullcycle.admin.catalogo.infrastructure.Main" />
       <module name="fullcycle-3_springboot_admin-do-catalogo.infrastructure.main" />
@@ -84,6 +83,30 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="MainTest.testMain" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":infrastructure:test" />
+            <option value="--tests" />
+            <option value="&quot;br.fullcycle.admin.catalogo.infrastructure.MainTest.testMain&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
     <configuration name="fullcycle-3_springboot_admin-do-catalogo [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -131,11 +154,13 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.MainTest.testMain" />
       <item itemvalue="Gradle.fullcycle-3_springboot_admin-do-catalogo [bootJar]" />
       <item itemvalue="Gradle.fullcycle-3_springboot_admin-do-catalogo [bootRun]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.MainTest.testMain" />
         <item itemvalue="Gradle.fullcycle-3_springboot_admin-do-catalogo [bootRun]" />
         <item itemvalue="Gradle.fullcycle-3_springboot_admin-do-catalogo [bootJar]" />
         <item itemvalue="Application.Main" />
