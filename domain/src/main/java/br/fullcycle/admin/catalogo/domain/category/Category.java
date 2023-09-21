@@ -4,6 +4,7 @@ import br.fullcycle.admin.catalogo.domain.AggregateRoot;
 import br.fullcycle.admin.catalogo.domain.validation.ValidationHandler;
 
 import java.time.Instant;
+import java.util.Objects;
 
 public class Category extends AggregateRoot<CategoryID> {
     private String name;
@@ -25,8 +26,8 @@ public class Category extends AggregateRoot<CategoryID> {
         this.name = aName;
         this.description = aDescription;
         this.active = isActive;
-        this.createdAt = aCreatedAt;
-        this.updatedAt = aUpdatedAt;
+        this.createdAt = Objects.requireNonNull(aCreatedAt, "'createdAt' should not be null");
+        this.updatedAt = Objects.requireNonNull(aUpdatedAt, "'updatedAt' should not be null");
         this.deletedAt = aDeletedAt;
     }
 
