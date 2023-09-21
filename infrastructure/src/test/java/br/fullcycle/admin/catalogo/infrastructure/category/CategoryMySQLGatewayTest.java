@@ -16,7 +16,7 @@ public class CategoryMySQLGatewayTest {
     private CategoryRepository categoryRepository;
 
     @Test
-    public void testInjectedDependencies() {
+    public void givenValidCategory_whenCallsCreate_shouldReturnNewCategory() {
         final var expectedName = "Filmes";
         final var expectedDescription = "";
         final var expectedIsActive = true;
