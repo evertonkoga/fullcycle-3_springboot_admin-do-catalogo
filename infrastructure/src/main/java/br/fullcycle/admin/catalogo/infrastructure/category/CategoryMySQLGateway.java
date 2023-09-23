@@ -7,8 +7,13 @@ import br.fullcycle.admin.catalogo.domain.category.CategorySearchQuery;
 import br.fullcycle.admin.catalogo.domain.pagination.Pagination;
 import br.fullcycle.admin.catalogo.infrastructure.category.persistence.CategoryJpaEntity;
 import br.fullcycle.admin.catalogo.infrastructure.category.persistence.CategoryRepository;
+import br.fullcycle.admin.catalogo.infrastructure.utils.SpecificationUtils;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,7 +50,29 @@ public class CategoryMySQLGateway implements CategoryGateway {
 
     @Override
     public Pagination<Category> findAll(CategorySearchQuery aQuery) {
-        return null;
+        final var page = PageRequest.of(
+                aQuery.page(),
+                aQuery.perPage(),
+                Sort.by(Sort.Direction.fromString(aQuery.direction()), aQuery.sort())
+        );
+
+        final var specifications = Optional.ofNullable(aQuery.terms())
+                .filter(filter -> !filter.isBlank())
+                .map(filter -> {
+                    final Specification<CategoryJpaEntity> nameLike = SpecificationUtils.like("name", filter);
+                    final Specification<CategoryJpaEntity> descriptionLike = SpecificationUtils.like("description", filter);
+                    return nameLike.or(descriptionLike);
+                })
+                .orElse(null);
+
+        final var pageResult = this.repository.findAll(Specification.where(specifications), page);
+
+        return new Pagination<>(
+                pageResult.getNumber(),
+                pageResult.getSize(),
+                pageResult.getTotalElements(),
+                pageResult.map(CategoryJpaEntity::toAggregate).toList()
+        );
     }
 
     private Category save(Category aCategory) {
